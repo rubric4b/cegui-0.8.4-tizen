@@ -11,10 +11,11 @@ Source0:        %{name}-%{version}.tar.gz
 Source1001: 	packaging/cegui.manifest
 
 BuildRequires: cmake
-#BuildRequires: pkgconfig(dlog)
-#%if 0%{?_include_tc}
-#BuildRequires: pkgconfig(turbojpeg)
-#%endif
+BuildRequires: pkgconfig(freetype2)
+BuildRequires: pkgconfig(fontconfig)
+BuildRequires: pkgconfig(fribidi)
+BuildRequires: pkgconfig(libxml-2.0)
+BuildRequires: pkgconfig(opengl-es-20)
 BuildRequires: model-build-features
 
 %description
