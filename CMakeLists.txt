@@ -499,6 +499,10 @@ if (UNIX AND NOT APPLE)
         configure_file( cegui/CEGUI-LUA.pc.in cegui/CEGUI-${CEGUI_VERSION_MAJOR}-LUA.pc @ONLY )
         install(FILES ${CMAKE_BINARY_DIR}/cegui/CEGUI-${CEGUI_VERSION_MAJOR}-LUA.pc DESTINATION ${CEGUI_PKGCONFIG_INSTALL_DIR})
     endif()
+    if (CEGUI_BUILD_RENDERER_OPENGLES)
+        configure_file( cegui/CEGUI-OPENGLES.pc.in cegui/CEGUI-${CEGUI_VERSION_MAJOR}-OPENGLES.pc @ONLY )
+        install(FILES ${CMAKE_BINARY_DIR}/cegui/CEGUI-${CEGUI_VERSION_MAJOR}-OPENGLES.pc DESTINATION ${CEGUI_PKGCONFIG_INSTALL_DIR})
+    endif()
 endif()
 
 ################################################################################

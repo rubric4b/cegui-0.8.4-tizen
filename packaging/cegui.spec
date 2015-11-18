@@ -79,4 +79,5 @@ rm -rf %{buildroot}
 %files -n cegui-devel
 %{_includedir}/cegui-0/*
 %{_libdir}/pkgconfig/CEGUI-0.pc
+%{_libdir}/pkgconfig/CEGUI-0-OPENGLES.pc
 
