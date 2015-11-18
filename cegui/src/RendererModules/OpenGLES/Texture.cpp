@@ -169,7 +169,7 @@ void OpenGLESTexture::loadFromMemory(const void* buffer,
     d_dataSize = buffer_size;
     updateCachedScaleValues();
 
-    blitFromMemory(buffer, Rectf(Vector2f(0, 0), buffer_size));
+    blitFromMemory(buffer, buffer_size);
 }
 
 //----------------------------------------------------------------------------//
@@ -202,7 +202,7 @@ void OpenGLESTexture::loadCompressedTextureBuffer(const Sizef& buffer_size,
 }
 
 //----------------------------------------------------------------------------//
-GLsizei getCompressedTextureSize(const Sizef& pixel_size) const
+GLsizei OpenGLESTexture::getCompressedTextureSize(const Sizef& pixel_size) const
 {
     // Calculate buffer size in bytes
     GLsizei image_space = 
@@ -215,7 +215,7 @@ GLsizei getCompressedTextureSize(const Sizef& pixel_size) const
 }
 
 //----------------------------------------------------------------------------//
-void OpenGLESTexture::blitFromMemory(const void* sourceData, const Rectf& area)
+void OpenGLESTexture::blitFromMemory(const void* sourceData, const Sizef& area)
 {
     // save old texture binding
     GLuint old_tex;

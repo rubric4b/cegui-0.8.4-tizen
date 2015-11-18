@@ -74,6 +74,10 @@ public:
     //! return the GL modelview matrix used for this buffer.
 	const float* getMatrix() const;
 
+	//----------------------------------------------------------------------------//
+	void setClippingActive(const bool active){ d_clippingActive = active; };
+	bool isClippingActive() const {return d_clippingActive;};
+
 protected:
     //! perform batch management operations prior to adding new geometry.
     void performBatchManagement();
@@ -115,6 +119,9 @@ protected:
     mutable float d_matrix[16];
     //! true when d_matrix is valid and up to date
     mutable bool d_matrixValid;
+
+    //! whether clipping will be active for the current batch
+    bool d_clippingActive;
 };
 
 
