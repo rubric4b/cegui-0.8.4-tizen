@@ -1,5 +1,3 @@
-#%define _include_tc 0
-
 %define _prefix		/usr
 %define _libdir		%{_prefix}/lib
 
@@ -73,15 +71,11 @@ rm -rf %{buildroot}
 
 %files
 %manifest cegui.manifest
-%{_libdir}/libcegui.so*
+%{_libdir}/libCEGUI*.so*
+%{_libdir}/cegui-0.8/libCEGUI*.so*
+/usr/share/cegui-0/*
 
 %files -n cegui-devel
-%{_includedir}/CEGUI.h
-%{_libdir}/libcegui.so
-%{_libdir}/pkgconfig/cegui.pc
-
-#%if 0%{?_include_tc}
-#%files -n native-buffer-tc
-#%{_bindir}/*
-#%endif
+%{_includedir}/cegui-0/*
+%{_libdir}/pkgconfig/CEGUI-0.pc
 
