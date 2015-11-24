@@ -16,6 +16,10 @@ BuildRequires: pkgconfig(fontconfig)
 BuildRequires: pkgconfig(fribidi)
 BuildRequires: pkgconfig(libxml-2.0)
 BuildRequires: pkgconfig(opengl-es-20)
+BuildRequires: boost-filesystem
+BuildRequires: boost-thread
+BuildRequires: boost-system
+BuildRequires: boost-devel
 BuildRequires: model-build-features
 
 %description
@@ -27,17 +31,6 @@ Requires:	%{name} = %{version}-%{release}
 
 %description -n cegui-devel
 cegui development libraries and head files
-
-#%if 0%{?_include_tc}
-#%package -n native-buffer-tc
-#Summary:	Test case for the Native Buffer library
-#Group:		Development/Libraries
-#Requires:	%{name} = %{version}-%{release}
-#BuildRequires: pkgconfig(opengl-es-20)
-
-#%description -n native-buffer-tc
-#native buffer test cases
-#%endif
 
 %prep
 %setup -q
@@ -52,15 +45,11 @@ export FFLAGS="$FFLAGS -DTIZEN_ENGINEER_MODE"
 CFLAGS+=" -fvisibility=hidden -fdata-sections -ffunction-sections -Wl,--gc-sections"
 cp %{SOURCE1001} .
 
-%if 0%{?_include_tc}
-%global extra_option -DBUILD_TC=TRUE
-%endif
-
 %if "%{?model_build_feature_graphics_gpu_info}" == "mali400"
 %global extra_option -DUSE_MALI=TRUE
 %endif
 
-cmake . -DCMAKE_INSTALL_PREFIX=%{_prefix} -DCMAKE_LIB_DIR=%{_libdir} -DPACKAGE_VERSION=%{version} %{?extra_option}
+cmake . -DCEGUI_BUILD_RENDERER_NULL=TRUE -DCMAKE_INSTALL_PREFIX=%{_prefix} -DCMAKE_LIB_DIR=%{_libdir} -DPACKAGE_VERSION=%{version} %{?extra_option}
 make %{?jobs:-j%jobs}
 
 %install
@@ -78,6 +67,5 @@ rm -rf %{buildroot}
 
 %files -n cegui-devel
 %{_includedir}/cegui-0/*
-%{_libdir}/pkgconfig/CEGUI-0.pc
-%{_libdir}/pkgconfig/CEGUI-0-OPENGLES.pc
+%{_libdir}/pkgconfig/CEGUI*.pc
 
