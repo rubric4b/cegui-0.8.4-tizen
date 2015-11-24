@@ -90,7 +90,7 @@ SystemKeys::SystemKey SystemKeys::keyCodeToSystemKey(Key::Scan key)
         return Alt;
 
     default:
-        return None;
+        return Nonee;
     }
 }
     
@@ -182,7 +182,7 @@ SystemKeys::SystemKey SystemKeys::mouseButtonToSystemKey(MouseButton button)
 		return X2Mouse;
 
 	default:
-		return None; 
+		return Nonee; 
 	}
 }
 //----------------------------------------------------------------------------//

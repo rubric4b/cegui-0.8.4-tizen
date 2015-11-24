@@ -44,8 +44,11 @@ namespace CEGUI
 {
 
 //! Definitions of static constants
-const CEGUI::String PropertyHelper<bool>::True("true");
-const CEGUI::String PropertyHelper<bool>::False("false");
+
+#if 1 //for tizen
+const CEGUI::String PropertyHelper<bool>::Truee("true");
+const CEGUI::String PropertyHelper<bool>::Falsee("false");
+#endif
 
 const CEGUI::String PropertyHelper<AspectMode>::Shrink("Shrink");
 const CEGUI::String PropertyHelper<AspectMode>::Expand("Expand");

@@ -417,20 +417,33 @@ public:
 
         return type;
     }
-
+#if 1 // for tizen changed CEGUI::String True,false to Truee and false also .cpp, definition base.cpp, widgetcomponent.cpp, StateImagery.cpp
     static return_type fromString(const String& str)
     {
-        return (str == True || str == "True");
+        return (str == Truee || str == "True");
     }
 
     static string_return_type toString(pass_type val)
     {
-        return val ? True : False;
+        return val ? Truee : Falsee;
     }
 
     //! Definitions of the possible values represented as Strings
-    static const CEGUI::String True;
-    static const CEGUI::String False;
+    static const CEGUI::String Truee;
+    static const CEGUI::String Falsee;
+#else
+    static return_type fromString(const String& str)
+    {
+        return (str == "True" || str == "true");
+    }
+
+static string_return_type toString(pass_type val)
+{
+static String True("True");
+static String False("False");
+return val ? True : False;
+}
+#endif
 };
 
 

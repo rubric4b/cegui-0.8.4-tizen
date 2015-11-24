@@ -27,6 +27,7 @@
 #ifndef _CEGUISystemKeys_h_
 #define _CEGUISystemKeys_h_
 
+
 #include "CEGUI/InputEvent.h"
 
 namespace CEGUI
@@ -34,9 +35,9 @@ namespace CEGUI
 class CEGUIEXPORT SystemKeys
 {
 public:
-    enum SystemKey
+    enum SystemKey //for tizen none changed to nonee
     {
-        None          = 0x0000,
+        Nonee          = 0x0000,
         LeftMouse     = 0x0001,
         RightMouse    = 0x0002,
         Shift         = 0x0004,

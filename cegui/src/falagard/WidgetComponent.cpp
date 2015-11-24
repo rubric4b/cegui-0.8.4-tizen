@@ -251,7 +251,7 @@ namespace CEGUI
             xml_stream.attribute(Falagard_xmlHandler::RendererAttribute, d_rendererType);
 
         if (!d_autoWindow)
-            xml_stream.attribute(Falagard_xmlHandler::AutoWindowAttribute, PropertyHelper<bool>::False);
+            xml_stream.attribute(Falagard_xmlHandler::AutoWindowAttribute, PropertyHelper<bool>::Falsee);
 
         // Output <EventAction> elements
         for (EventActionList::const_iterator i = d_eventActions.begin();
