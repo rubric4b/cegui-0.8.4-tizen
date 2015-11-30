@@ -50,7 +50,7 @@ cp %{SOURCE1001} .
 %global extra_option -DUSE_MALI=TRUE
 %endif
 
-cmake . -DCEGUI_BUILD_RENDERER_NULL=TRUE -DCMAKE_INSTALL_PREFIX=%{_prefix} -DCMAKE_LIB_DIR=%{_libdir} -DPACKAGE_VERSION=%{version} %{?extra_option}
+cmake . -DCEGUI_BUILD_RENDERER_NULL=TRUE -DCEGUI_BUILD_IMAGECODEC_TGA=TRUE -DCMAKE_INSTALL_PREFIX=%{_prefix} -DCMAKE_LIB_DIR=%{_libdir} -DPACKAGE_VERSION=%{version} %{?extra_option}
 make %{?jobs:-j%jobs}
 
 %install
@@ -62,11 +62,13 @@ rm -rf %{buildroot}
 
 %files
 %manifest cegui.manifest
-%{_libdir}/libCEGUI*.so*
-%{_libdir}/cegui-0.8/libCEGUI*.so*
+%{_libdir}/lib*.so*
+%{_libdir}/cegui-0.8/lib*.so*
 /usr/share/cegui-0/*
 
 %files -n cegui-devel
 %{_includedir}/cegui-0/*
-%{_libdir}/pkgconfig/CEGUI*.pc
+%{_libdir}/pkgconfig/*
+%{_libdir}/lib*.so*
+%{_libdir}/cegui-0.8/lib*.so*
 
