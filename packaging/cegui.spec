@@ -15,7 +15,8 @@ BuildRequires: pkgconfig(freetype2)
 BuildRequires: pkgconfig(fontconfig)
 BuildRequires: pkgconfig(fribidi)
 BuildRequires: pkgconfig(libxml-2.0)
-BuildRequires: pkgconfig(opengl-es-20)
+BuildRequires: pkgconfig(glesv1_cm)
+#BuildRequires: pkgconfig(opengl-es-20)
 BuildRequires: boost-filesystem
 BuildRequires: boost-thread
 BuildRequires: boost-system
